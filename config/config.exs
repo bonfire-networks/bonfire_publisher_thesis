@@ -22,7 +22,6 @@ import_config "bonfire_publisher_thesis.exs"
 # other config files.
 
 
-
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
@@ -30,5 +29,7 @@ config :logger, :console,
 config :mime, :types, %{
   "application/activity+json" => ["activity+json"]
 }
+
+config :phoenix, :json_library, Jason
 
 # import_config "#{Mix.env()}.exs"

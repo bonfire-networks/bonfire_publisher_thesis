@@ -1,4 +1,5 @@
-defmodule Bonfire.Web do
+# this is just an example of what you would use elsewhere
+defmodule Bonfire.PublisherThesis.Web do
   @moduledoc false
 
   def controller(opts \\ []) do
