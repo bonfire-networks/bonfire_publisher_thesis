@@ -1,4 +1,4 @@
-defmodule BonfirePublisherThesis.ThesisAuth do
+defmodule Bonfire.PublisherThesis.ThesisAuth do
   @moduledoc """
   Contains functions for handling Thesis authorization.
   """

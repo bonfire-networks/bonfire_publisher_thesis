@@ -1,4 +1,4 @@
-# this is just an example of what you would use elsewhere
+# this is just an example of what you would use elsewhere (probably already exists in your app or in a core extension)
 defmodule Bonfire.PublisherThesis.Web do
   @moduledoc false
 

@@ -1,18 +1,20 @@
 use Mix.Config
 
+repo_module = Bonfire.Repo
+
 config :bonfire_publisher_thesis, :web_module, Bonfire.Web
-config :bonfire_publisher_thesis, :repo_module, Bonfire.Repo
+config :bonfire_publisher_thesis, :repo_module, repo_module
 config :bonfire_publisher_thesis, :templates_path, "lib"
 
 
 # Thesis Main Config
 config :thesis,
   store: Thesis.EctoStore,
-  authorization: BonfirePublisherThesis.ThesisAuth,
+  authorization: Bonfire.PublisherThesis.ThesisAuth,
   uploader: Thesis.RepoUploader
 
 # Thesis Store Config
-config :thesis, Thesis.EctoStore, repo: BonfirePublisherThesis.Repo
+config :thesis, Thesis.EctoStore, repo: repo_module
 
 # Thesis Notifications Config
 # config :thesis, :notifications,
@@ -22,7 +24,7 @@ config :thesis, Thesis.EctoStore, repo: BonfirePublisherThesis.Repo
 
 # Thesis Dynamic Pages Config
 # config :thesis, :dynamic_pages,
-#   view: BonfirePublisherThesisWeb.PageView,
+#   view: Bonfire.PublisherThesisWeb.PageView,
 #   templates: ["index.html", "otherview.html"],
-#   not_found_view: BonfirePublisherThesisWeb.ErrorView,
+#   not_found_view: Bonfire.PublisherThesisWeb.ErrorView,
 #   not_found_template: "404.html"

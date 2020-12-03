@@ -1,4 +1,4 @@
-defmodule Bonfire.PublisherThesis.Repo.Migrations.ImportMe do
+defmodule Bonfire.PublisherThesis.Repo.Migrations.ImportThesis do
   use Ecto.Migration
 
   import Bonfire.PublisherThesis.Migration
