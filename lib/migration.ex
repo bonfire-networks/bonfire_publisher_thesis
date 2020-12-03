@@ -1,41 +1,50 @@
 defmodule Bonfire.PublisherThesis.Migration do
   use Ecto.Migration
 
-  defp mm(:up) do
-    quote do
-      require Bonfire.Data.ActivityPub.Actor.Migration
-      require Bonfire.PublisherThesis.AccessControl.Migration
-      require Bonfire.PublisherThesis.Identity.Migration
-      require Bonfire.PublisherThesis.Social.Migration
-      Bonfire.PublisherThesis.AccessControl.Migration.migrate_me_access_control()
-      Bonfire.PublisherThesis.Identity.Migration.migrate_me_identity()
-      Bonfire.PublisherThesis.Social.Migration.migrate_me_social()
-      Bonfire.Data.ActivityPub.Actor.Migration.migrate_actor()
-      Ecto.Migration.flush()
-      Bonfire.PublisherThesis.Fixtures.insert()
-    end
-  end
+  def migrate_thesis() do
 
-  defp mm(:down) do
-    quote do
-      require Bonfire.Data.ActivityPub.Actor.Migration
-      require Bonfire.PublisherThesis.AccessControl.Migration
-      require Bonfire.PublisherThesis.Identity.Migration
-      require Bonfire.PublisherThesis.Social.Migration
-      Bonfire.Data.ActivityPub.Actor.Migration.migrate_actor()
-      Bonfire.PublisherThesis.Social.Migration.migrate_me_social()
-      Bonfire.PublisherThesis.Identity.Migration.migrate_me_identity()
-      Bonfire.PublisherThesis.AccessControl.Migration.migrate_me_access_control()
-    end
-  end
+    create table(:thesis_pages) do
+      add :slug, :string
+      add :title,        :string, size: 512
+      add :description,  :string, size: 1024
+      add :template, :string
+      add :redirect_url, :string
 
-  defmacro migrate_thesis() do
-    quote do
-      if Ecto.Migration.direction() == :up,
-        do: unquote(mm(:up)),
-        else: unquote(mm(:down))
+      timestamps()
     end
+
+    create index(:thesis_pages, [:slug])
+
+    create table(:thesis_page_contents) do
+      add :page_id, references(:thesis_pages, on_delete: :delete_all)
+      add :name, :string, nil: false
+      add :content, :text, default: "", nil: false
+      add :content_type, :string, default: "html"
+      add :meta, :text
+
+      timestamps
+    end
+
+    create table(:thesis_files) do
+      add :slug, :string
+      add :content_type, :string
+      add :filename, :string
+      add :data, :binary
+
+      timestamps()
+    end
+
+    create unique_index(:thesis_files, [:slug])
+
+
+    create table(:thesis_backups) do
+      add :page_id, references(:thesis_pages, on_delete: :delete_all)
+      add :page_revision, :integer
+      add :page_data, :text
+
+      timestamps()
+    end
+
   end
-  defmacro migrate_thesis(dir), do: mm(dir)
 
 end
