@@ -2,10 +2,9 @@ use Mix.Config
 
 repo_module = Bonfire.Repo
 
-config :bonfire_publisher_thesis, :web_module, Bonfire.Web
-config :bonfire_publisher_thesis, :repo_module, repo_module
-config :bonfire_publisher_thesis, :templates_path, "lib"
-
+config :bonfire_publisher_thesis,
+  web_module: Bonfire.Web,
+  repo_module: repo_module
 
 # Thesis Main Config
 config :thesis,
