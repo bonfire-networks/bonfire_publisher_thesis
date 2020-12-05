@@ -1,14 +1,9 @@
-# Bonfire:Me
+# Bonfire:Publisher:Thesis
 
-An extension for [Bonfire](https://bonfire.cafe/) that handles:
+A prototype extension for [Bonfire](https://bonfire.cafe/) that packages [Thesis](https://github.com/infinitered/thesis-phoenix/blob/master/README.md) to handle:
 
-- Account creation
-- Email verification
-- Authentication
-- User/Profile creation
-- User/Profile switching
-- User Profile
-- Settings
+- Editing content on static pages
+- Publishing new dynamic pages from templates
 
 ## Handy commands
 
