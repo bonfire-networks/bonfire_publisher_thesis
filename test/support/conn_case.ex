@@ -36,9 +36,9 @@ defmodule Bonfire.PublisherThesis.ConnCase do
 
   setup tags do
 
-    @repo Application.get_env(:bonfire_publisher_thesis, :repo_module)
+    @repo Bonfire.Common.Config.get_ext(:bonfire_publisher_thesis, :repo_module)
 
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(@repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(repo())
 
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(@repo, {:shared, self()})
