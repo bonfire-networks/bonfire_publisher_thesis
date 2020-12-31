@@ -2,10 +2,6 @@ use Mix.Config
 
 repo_module = Bonfire.Repo
 
-config :bonfire_publisher_thesis,
-  web_module: Bonfire.Web,
-  repo_module: repo_module
-
 # Thesis Main Config
 config :thesis,
   store: Thesis.EctoStore,

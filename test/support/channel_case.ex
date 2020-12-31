@@ -30,12 +30,12 @@ defmodule Bonfire.PublisherThesis.ChannelCase do
 
   setup tags do
 
-    @repo Bonfire.Common.Config.get_ext(:bonfire_publisher_thesis, :repo_module)
+    import Bonfire.Common.Config, only: [repo: 0]
 
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(repo())
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(@repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(repo(), {:shared, self()})
     end
 
     :ok
