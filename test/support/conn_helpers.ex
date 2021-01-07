@@ -8,7 +8,7 @@ defmodule Bonfire.PublisherThesis.Test.ConnHelpers do
   alias Bonfire.Data.Identity.Account
   alias Bonfire.Data.Identity.User
 
-  @endpoint Bonfire.PublisherThesis.Web.Endpoint
+  @endpoint Bonfire.Common.Config.get!(:endpoint_module)
 
   ### conn
 
