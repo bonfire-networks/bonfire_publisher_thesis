@@ -23,7 +23,7 @@ defmodule Bonfire.PublisherThesis.Web.Router do
         resources "/signup", SignupController, only: [:index, :create]
         resources "/login", LoginController, only: [:index, :create]
         resources "/forgot-password/", ForgotPasswordController, only: [:index, :create]
-        resources "/reset-password/:token", ResetPasswordController, only: [:index, :create]
+        # resources "/reset-password/:token", ResetPasswordController, only: [:index, :create]
       end
 
       # visible only to users and account holders
