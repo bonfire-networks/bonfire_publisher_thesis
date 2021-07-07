@@ -37,7 +37,7 @@ defmodule Bonfire.PublisherThesis.Web do
   def live_view(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:layout, {Bonfire.Web.LayoutView, "live.html"})
+      |> Keyword.put_new(:layout, {Bonfire.UI.Social.Web.LayoutView, "live.html"})
       |> Keyword.put_new(:namespace, Bonfire.Web)
     quote do
       use Phoenix.LiveView, unquote(opts)
