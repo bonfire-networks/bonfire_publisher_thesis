@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 repo_module = Bonfire.Repo
 
