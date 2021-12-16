@@ -1,4 +1,4 @@
-# Bonfire:Publisher:Thesis
+# Bonfire.Publisher.Thesis
 
 A prototype extension for [Bonfire](https://bonfire.cafe/) that packages [Thesis](https://github.com/infinitered/thesis-phoenix/blob/master/README.md) to handle:
 
