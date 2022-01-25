@@ -10,7 +10,7 @@ defmodule Bonfire.PublisherThesis.Web do
       use Phoenix.Controller, unquote(opts)
 
       import Plug.Conn
-      import Bonfire.Web.Gettext
+      use Bonfire.Web.Localise
       alias Bonfire.Web.Router.Helpers, as: Routes
       alias Bonfire.Web.Plugs.{MustBeGuest, MustLogIn}
       import Phoenix.LiveView.Controller
@@ -93,7 +93,7 @@ defmodule Bonfire.PublisherThesis.Web do
     quote do
       use Phoenix.Channel, unquote(opts)
 
-      import Bonfire.Web.Gettext
+      use Bonfire.Web.Localise
     end
   end
 
@@ -109,7 +109,7 @@ defmodule Bonfire.PublisherThesis.Web do
       import Phoenix.View
 
       import Bonfire.Common.Web.ErrorHelpers
-      import Bonfire.Web.Gettext
+      use Bonfire.Web.Localise
 
       alias Bonfire.Web.Router.Helpers, as: Routes
 
