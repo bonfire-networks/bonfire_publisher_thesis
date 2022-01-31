@@ -14,7 +14,7 @@ defmodule Bonfire.PublisherThesis.Web do
       alias Bonfire.Web.Router.Helpers, as: Routes
       alias Bonfire.Web.Plugs.{MustBeGuest, MustLogIn}
       import Phoenix.LiveView.Controller
-      import Bonfire.Common.Utils
+      use Bonfire.Common.Utils
     end
   end
 
@@ -82,7 +82,7 @@ defmodule Bonfire.PublisherThesis.Web do
       import Phoenix.Controller
       import Phoenix.LiveView.Router
 
-      import Bonfire.Common.Utils
+      use Bonfire.Common.Utils
     end
   end
 
@@ -113,7 +113,7 @@ defmodule Bonfire.PublisherThesis.Web do
 
       alias Bonfire.Web.Router.Helpers, as: Routes
 
-      import Bonfire.Common.Utils
+      use Bonfire.Common.Utils
     end
   end
 
