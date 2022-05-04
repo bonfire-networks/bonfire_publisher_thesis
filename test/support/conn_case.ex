@@ -26,7 +26,7 @@ defmodule Bonfire.PublisherThesis.ConnCase do
       import Bonfire.UI.Common.Testing.Helpers
 
       import Phoenix.LiveViewTest
-      import Bonfire.PublisherThesis.ConnCase
+      # import Bonfire.PublisherThesis.ConnCase
       import Bonfire.PublisherThesis.Test.ConnHelpers
       import Bonfire.PublisherThesis.Test.FakeHelpers
       alias Bonfire.PublisherThesis.Fake

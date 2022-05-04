@@ -22,7 +22,7 @@ defmodule Bonfire.PublisherThesis.DataCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Bonfire.PublisherThesis.DataCase
+      # import Bonfire.PublisherThesis.DataCase
     end
   end
 
