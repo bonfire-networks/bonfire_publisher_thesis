@@ -1,6 +1,6 @@
 import Config
 
-repo_module = Bonfire.Repo
+repo_module = Bonfire.Common.Repo
 
 # Thesis Main Config
 config :thesis,

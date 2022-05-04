@@ -5,14 +5,14 @@ defmodule Bonfire.PublisherThesis.Web do
   def controller(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.Controller, unquote(opts)
 
       import Plug.Conn
-      use Bonfire.Web.Localise
+      use Bonfire.Common.Localise
       alias Bonfire.Web.Router.Helpers, as: Routes
-      alias Bonfire.Web.Plugs.{MustBeGuest, MustLogIn}
+      alias Bonfire.Me.Web.Plugs.{MustBeGuest, MustLogIn}
       import Phoenix.LiveView.Controller
       use Bonfire.Common.Utils
     end
@@ -22,7 +22,7 @@ defmodule Bonfire.PublisherThesis.Web do
     opts =
       opts
       |> Keyword.put_new(:root, "lib/web/views")
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.View, unquote(opts)
 
@@ -38,7 +38,7 @@ defmodule Bonfire.PublisherThesis.Web do
     opts =
       opts
       |> Keyword.put_new(:layout, {Bonfire.UI.Social.Web.LayoutView, "live.html"})
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.LiveView, unquote(opts)
 
@@ -49,7 +49,7 @@ defmodule Bonfire.PublisherThesis.Web do
   def live_component(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.LiveComponent, unquote(opts)
       unquote(view_helpers())
@@ -74,7 +74,7 @@ defmodule Bonfire.PublisherThesis.Web do
   def router(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.Router, unquote(opts)
 
@@ -89,11 +89,11 @@ defmodule Bonfire.PublisherThesis.Web do
   def channel(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:namespace, Bonfire.Web)
+      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.Channel, unquote(opts)
 
-      use Bonfire.Web.Localise
+      use Bonfire.Common.Localise
     end
   end
 
@@ -109,7 +109,7 @@ defmodule Bonfire.PublisherThesis.Web do
       import Phoenix.View
 
       import Bonfire.Common.Web.ErrorHelpers
-      use Bonfire.Web.Localise
+      use Bonfire.Common.Localise
 
       alias Bonfire.Web.Router.Helpers, as: Routes
 
