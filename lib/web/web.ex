@@ -12,7 +12,7 @@ defmodule Bonfire.PublisherThesis.Web do
       import Plug.Conn
       use Bonfire.Common.Localise
       alias Bonfire.Web.Router.Helpers, as: Routes
-      alias Bonfire.Me.Web.Plugs.{MustBeGuest, MustLogIn}
+      alias Bonfire.UI.Me.Plugs.{MustBeGuest, MustLogIn}
       import Phoenix.LiveView.Controller
       use Bonfire.Common.Utils
     end
@@ -37,7 +37,7 @@ defmodule Bonfire.PublisherThesis.Web do
   def live_view(opts \\ []) do
     opts =
       opts
-      |> Keyword.put_new(:layout, {Bonfire.UI.Social.Web.LayoutView, "live.html"})
+      |> Keyword.put_new(:layout, {Bonfire.UI.Common.LayoutView, "live.html"})
       |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
     quote do
       use Phoenix.LiveView, unquote(opts)
