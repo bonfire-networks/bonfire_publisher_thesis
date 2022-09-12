@@ -5,5 +5,4 @@ defmodule Bonfire.PublisherThesis.Repo.Migrations.ImportThesis do
   # accounts & users
 
   def change, do: migrate_thesis
-
 end

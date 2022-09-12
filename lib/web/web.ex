@@ -3,16 +3,17 @@ defmodule Bonfire.PublisherThesis.Web do
   @moduledoc false
 
   def controller(opts \\ []) do
-    opts =
-      opts
-      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+    opts = Keyword.put_new(opts, :namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.Controller, unquote(opts)
 
       import Plug.Conn
       use Bonfire.Common.Localise
       alias Bonfire.Web.Router.Helpers, as: Routes
-      alias Bonfire.UI.Me.Plugs.{MustBeGuest, MustLogIn}
+      alias Bonfire.UI.Me.Plugs.MustBeGuest
+      alias Bonfire.UI.Me.Plugs.MustLogIn
+
       import Phoenix.LiveView.Controller
       use Bonfire.Common.Utils
     end
@@ -23,6 +24,7 @@ defmodule Bonfire.PublisherThesis.Web do
       opts
       |> Keyword.put_new(:root, "lib/web/views")
       |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.View, unquote(opts)
 
@@ -39,6 +41,7 @@ defmodule Bonfire.PublisherThesis.Web do
       opts
       |> Keyword.put_new(:layout, {Bonfire.UI.Common.LayoutView, "live.html"})
       |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.LiveView, unquote(opts)
 
@@ -47,9 +50,8 @@ defmodule Bonfire.PublisherThesis.Web do
   end
 
   def live_component(opts \\ []) do
-    opts =
-      opts
-      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+    opts = Keyword.put_new(opts, :namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.LiveComponent, unquote(opts)
       unquote(view_helpers())
@@ -72,9 +74,8 @@ defmodule Bonfire.PublisherThesis.Web do
   end
 
   def router(opts \\ []) do
-    opts =
-      opts
-      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+    opts = Keyword.put_new(opts, :namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.Router, unquote(opts)
 
@@ -87,9 +88,8 @@ defmodule Bonfire.PublisherThesis.Web do
   end
 
   def channel(opts \\ []) do
-    opts =
-      opts
-      |> Keyword.put_new(:namespace, Bonfire.UI.Common.Web)
+    opts = Keyword.put_new(opts, :namespace, Bonfire.UI.Common.Web)
+
     quote do
       use Phoenix.Channel, unquote(opts)
 
@@ -124,7 +124,7 @@ defmodule Bonfire.PublisherThesis.Web do
     apply(__MODULE__, which, [])
   end
 
-  defmacro __using__([{which,opts}]) when is_atom(which) and is_list(opts) do
+  defmacro __using__([{which, opts}]) when is_atom(which) and is_list(opts) do
     apply(__MODULE__, which, [opts])
   end
 end
